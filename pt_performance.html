@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>iPerf</title>
+    <meta property="og:title" content="iPerf" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="iPerf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <!-- pickadte 套件樣式 -->
+    <link rel="stylesheet" href="vendor/pickadate.js-master/lib/themes/default.css">
+    <link rel="stylesheet" href="vendor/pickadate.js-master/lib/themes/default.date.css">
+
+    <!-- icomoon.css -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- default.css -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+
+<body>
+    <div id="dashboard">
+        <!-- 側邊攔 -->
+        <div class="sidebar"></div>
+        <!-- 主畫面 -->
+        <div class="main">
+            <header class="main-header">
+                <i class="micon-doctor icon"></i>
+                <label>PT 業績</label>
+            </header>
+            <div class="tools">
+                <button class="btn reload-btn">
+                    <i class="micon-reload icon"></i>
+                    <div class="reload-text">更新即時業績</div>
+                </button>
+                <form class="calendar">
+                    <i class="micon-calendar icon"></i>
+                    <input type="text" class="calendar-input">
+                    <button type="button" class="btn search-btn">
+                        <i class="micon-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="content">
+                <div class="table month-table">
+                    <header><span class="month-text">10月</span>份業績</header>
+                    <div class="list">
+                        <div class="item bouns-item">
+                            <div class="title">獎金</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">實收金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">執行金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table date-table">
+                    <header>今日業績 <span class="data-text">10/21(一)</span></header>
+                    <div class="list">
+                        <div class="item bouns-item">
+                            <div class="title">獎金</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">實收金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">執行金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table ranking-table">
+                    <header><span class="month-text">10月</span>執行金額 / 獎金前5名</header>
+                    <div class="list">
+                        <div class="rank">
+                            <div class="rank-item">
+                                <div class="rank-item-user">
+                                    <div class="rank-item-user-num">
+                                        <i class="micon-circle"></i>
+                                        <span>1</span>
+                                    </div>
+                                    <div class="rank-item-user-text">王小明</div>
+                                </div>
+                                <div class="rank-item-received">
+                                    <div class="rank-item-received-bonus">
+                                        <div class="title">獎金</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-implement-price">
+                                        <div class="title">執行金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-received-price">
+                                        <div class="title">實收金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-item-user">
+                                    <div class="rank-item-user-num">
+                                        <i class="micon-circle"></i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="rank-item-user-text">王小明</div>
+                                </div>
+                                <div class="rank-item-received">
+                                    <div class="rank-item-received-bonus">
+                                        <div class="title">獎金</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-implement-price">
+                                        <div class="title">執行金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-received-price">
+                                        <div class="title">實收金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-item-user">
+                                    <div class="rank-item-user-num">
+                                        <i class="micon-circle"></i>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="rank-item-user-text">王小明</div>
+                                </div>
+                                <div class="rank-item-received">
+                                    <div class="rank-item-received-bonus">
+                                        <div class="title">獎金</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-implement-price">
+                                        <div class="title">執行金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-received-price">
+                                        <div class="title">實收金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-item-user">
+                                    <div class="rank-item-user-num">
+                                        <i class="micon-circle"></i>
+                                        <span>4</span>
+                                    </div>
+                                    <div class="rank-item-user-text">王小明</div>
+                                </div>
+                                <div class="rank-item-received">
+                                    <div class="rank-item-received-bonus">
+                                        <div class="title">獎金</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-implement-price">
+                                        <div class="title">執行金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-received-price">
+                                        <div class="title">實收金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-item-user">
+                                    <div class="rank-item-user-num">
+                                        <i class="micon-circle"></i>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="rank-item-user-text">王小明</div>
+                                </div>
+                                <div class="rank-item-received">
+                                    <div class="rank-item-received-bonus">
+                                        <div class="title">獎金</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-implement-price">
+                                        <div class="title">執行金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                    <div class="rank-item-received-price">
+                                        <div class="title">實收金額</div>
+                                        <div class="text">$340,000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- pickadate 套件 -->
+<script src="vendor/pickadate.js-master/lib/picker.js"></script>
+<script src="vendor/pickadate.js-master/lib/picker.date.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 使用 puckadate  -->
+<script src="js/date.js"></script>
+
+</html>

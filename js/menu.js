@@ -1,0 +1,21 @@
+$(".sidebar-switch").click(function(){
+    if($(window).width()<992){
+        if($(this).closest('.sidebar').find('.mobile-icon').hasClass('micon-nav')){            
+            $(this).closest('.sidebar').find('.mobile-icon').removeClass('micon-nav').addClass('micon-close');
+            $(this).closest('.sidebar').find('.information').addClass('switch-m-active');
+            
+        }else{
+            $(this).closest('.sidebar').find('.mobile-icon').addClass('micon-nav').removeClass('micon-close');
+            $(this).closest('.sidebar').find('.information').removeClass('switch-m-active');
+        }
+    }
+    else{    
+        if($(this).closest('.sidebar').hasClass('switch-active')){
+            $('#dashboard').removeClass('switch-width');
+            $(this).closest('.sidebar').removeClass('switch-active');
+        }else{
+            $('#dashboard').addClass('switch-width');
+            $(this).closest('.sidebar').addClass('switch-active');
+        }
+    }
+});

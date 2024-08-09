@@ -1,0 +1,135 @@
+:root {
+    --contentcolor: #f9f9f9;
+    --fontColor: #666666;
+    --mecoGreen: #00BBB4;
+    --btnColor: #f4e2c5;
+    --black: #222222;
+    --white: #ffffff;
+    --red: #ff3333;
+    --pink: #e16363;
+    --darkGray: #72706d;
+    --gray: #cccccc;
+    --yellow: #F3DB00;
+}
+
+html,body{
+    font-family: 'Noto Sans TC' !important;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+ol,ul,li{
+    list-style: none;
+    padding: 0;
+}
+
+@mixin switch-style {
+    position: relative;
+    width: 64px;
+    height: 24px;
+    & > input[type="checkbox"] {
+      display: none;
+      & +label {
+        display: block;
+        background: var(--gray);
+        position: absolute;
+        border-radius: 100px;
+        cursor: pointer;
+        width: 44px;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        right: 0;
+        @include ease(.2s);
+        &::before {
+          content: '';
+          background: var(--white);
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 100px;
+          top: 2px;
+          left: 2px;
+          @include ease(.2s);
+        }
+      }
+      &:checked{
+        &+label {
+          background: var(--mecoGreen);
+          &::before {
+            transform: translate(20px);
+          }
+        }
+  
+        &~span{
+          display: block;
+          &:last-child{
+            display: none;
+          }                     
+        }
+      }
+  
+      &:not(:checked){
+  
+        &~span{
+          display: none;
+          &:last-child{
+            display: block;
+          }                    
+        }
+      }
+    }
+  
+    & > span{
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+  } 
+  
+  @mixin s-tabs($fontsize,$border-bottom,$tabsID,$panelClass,$panelID){ 
+    display: none;
+  
+    &:checked + label {
+      color: var(--pink);
+    }
+  
+    &+label{       
+      @include flexbox(row,center,center);
+      color: var(--gray);
+      cursor: pointer;
+      font-size: $fontsize;  
+      @include ease(.2s);
+  
+      &:hover{
+        color: var(--pink);
+      } 
+    }
+    @for $i from 1 through 3 {
+      &#{$tabsID}#{$i}:checked {            
+        ~ #{$panelClass} #{$panelID}-#{$i} {   
+          z-index: 1;          
+          @include show;     
+        }            
+      }
+    }
+  }
+
+@mixin btn-style{  
+    background: transparent;  
+    border: 1px solid  var(--mecoGreen); 
+    border-radius: 5px;
+    color: var(--mecoGreen);
+    cursor: pointer;
+    padding: 7px 9px;
+    @include ease(.2s);
+    &:hover{
+      background: var(--mecoGreen);
+      color:var(--white);
+    }
+  }

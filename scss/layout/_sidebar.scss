@@ -1,0 +1,271 @@
+/* 側邊攔 style */
+.sidebar {
+    position: relative;
+    color: var(--black);
+    padding: 44px;
+    padding-right: 20px;
+
+    .sidebar-switch {
+        position: fixed;
+        background: var(--white);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 8px;
+        left: 280px;
+        top: 50px;
+
+        .mobile-icon {
+            display: none;
+
+            @include for-largepad {
+                display: block;
+            }
+        }
+
+        @include for-desktop {
+            left: 224px;
+        }
+
+        &:hover {
+            background: var(--mecoGreen);
+            color: var(--white);
+        }
+
+        @include for-largepad {
+            top: 16px;
+            left: unset;
+            right: 16px;
+            z-index: 100;
+
+            .micon-arrow {
+                display: none;
+            }
+        }
+    }
+
+    .meco-logo {
+        background: url(/image/logo/logo.svg) no-repeat center center transparent;
+        background-size: contain;
+        height: 35px;
+        margin-bottom: 50px;
+
+        @include for-desktop {
+            height: 25px;
+        }
+
+        @include for-largepad {
+            background: url(/image/logo/logo.svg) no-repeat left center transparent;
+            background-size: contain;
+            margin: 0;
+        }
+    }
+
+    .information {
+        display: grid;
+        position: sticky;
+        top: 32px;
+        gap: 24px;
+        @include ease(.2s);
+
+        .avator {
+            @include grid(row, auto, auto, center, 12px);
+            height: fit-content;
+
+            &>img {
+                background: var(--contentcolor);
+                width: 120px;
+                border-radius: 50%;
+            }
+
+            .username {
+                text-align: center;
+
+                @include for-largepad {
+                    color: var(--white);
+                }
+
+                &-text {
+                    font-size: 1.125rem;
+
+                }
+
+                &-position {
+                    font-size: 0.675rem;
+                    color: var(--fontColor);
+                    bottom: 0;
+
+                    @include for-largepad {
+                        color: var(--white);
+                    }
+                }
+            }
+        }
+
+        .menu {
+            @include grid(row, 100%, auto, center, 24px);
+
+            &-item {
+                border-radius: 10px;
+                color: var(--black);
+                font-size: 1.125rem;
+                padding: 12px;
+                @include link-default;
+
+                .icon {
+                    margin-right: 16px;
+                }
+
+                &>label {
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    background: var(--mecoGreen);
+                    color: var(--white);
+                }
+
+                @include for-desktop {
+                    font-size: 1rem;
+                }
+
+                @include for-largepad {
+                    color: var(--white);
+                }
+            }
+
+            @include for-desktop {
+                gap: 12px;
+            }
+        }
+
+        .logout-btn {
+            background: transparent;
+            height: fit-content;
+            text-align: inherit;
+            align-self: flex-end;
+            border: 0;
+            border-radius: 10px;
+            color: var(--black);
+            cursor: pointer;
+            font-size: 1.125rem;
+            padding: 12px;
+            @include link-default;
+
+            .icon {
+                margin-right: 16px;
+            }
+
+            &>label {
+                cursor: pointer;
+            }
+
+            &:hover {
+                background: var(--mecoGreen);
+                color: var(--white);
+            }
+
+            @include for-desktop {
+                font-size: 1rem;
+            }
+
+            @include for-largepad {
+                color: var(--white);
+            }
+        }
+
+        @include for-largepad {
+            @include grid(row, 50%, auto, center, 50px);
+            background: rgba(0, 0, 0, .5);
+            @include background-blur(10px);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            top: 0;
+            left: 0;
+            @include transform-origin(top right);
+            @include scale3d(0, 0, 0);
+            @include hide;
+            z-index: 99;
+        }
+    }
+
+    /* 手機板側邊攔開啟*/
+    .switch-m-active {
+        @include show;
+        @include scale3d(1, 1, 1);
+    }
+
+    /* 手機板側邊攔開啟 end*/
+
+    @include for-desktop {
+        padding: 24px;
+        padding-right: 0;
+    }
+
+    @include for-largepad {
+        padding: 16px;
+    }
+}
+/* 側邊攔 style end*/
+
+/* 側邊攔關閉*/
+.switch-active {
+    padding-right: 0;
+
+    .sidebar-switch {
+        @include rotate(180deg);
+        left: 115px;
+    }
+
+    .meco-logo {
+        background: url(/image/logo/ci.svg) no-repeat center center transparent;
+        background-size: contain;
+        height: 35px;
+    }
+
+    .information {
+
+        .avator {
+            &>img {
+                width: 100%;
+            }
+
+            .username {
+                &-text {
+                    font-size: 0.675rem;
+                }
+            }
+        }
+
+        .menu {
+            &-item {
+                text-align: center;
+
+                .icon {
+                    margin-right: 0;
+                }
+
+                &>label {
+                    display: none;
+                }
+            }
+        }
+
+        .logout-btn {
+            text-align: center;
+
+            .icon {
+                margin-right: 0;
+            }
+
+            &>label {
+                display: none;
+            }
+        }
+    }
+}
+
+/* 側邊欄關閉 end*/

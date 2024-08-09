@@ -1,0 +1,248 @@
+/* AT bonus popup windows */
+.at-bonus-edit-popupwindow{
+  @include grid(row,560px,auto,center,24px);
+  background: rgba(0,0,0,.5);
+  @include background-blur(10px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  @include hide;
+  @include ease(.2s);
+  z-index: 101;
+
+  .table{      
+    @include grid(row,auto,auto,normal,24px);
+    position: relative;
+    background: var(--white);
+    border-radius: 10px;
+    font-size: 1.25rem;
+    padding: 24px; 
+    
+    .close-btn{
+      position: absolute;
+      background: var(--white);
+      border: none;
+      border-radius: 50%;
+      height: 40px;
+      color: var(--mecoGreen);
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 8px;
+      top: -55px;
+      right: 0;
+      @include ease(.2s);
+
+      &:hover{
+        background: var(--mecoGreen);
+        color: var(--white);
+      }
+    }
+
+    &-title{
+      @include grid(column,1fr,auto,space-around,0);
+      align-items: center;
+    }
+
+    &-header{
+      @include grid(column,repeat(2, 13rem) 1fr,auto,normal,24px);
+      align-items: center;
+      font-size: 1.125rem;
+      border-bottom: 1px solid var(--gray);
+      padding-bottom: 24px;
+      padding-right: 8px;
+
+      .item{
+        .btn{
+          background: transparent;
+          border:none;
+          color: var(--mecoGreen);
+          cursor: pointer;
+          font-size: 1.6rem;
+          @include link-default;
+          @include ease(.2s);
+
+          &:hover{
+            @include filter-brightness(0.8);
+          }
+        }
+
+        &:last-child{
+          text-align: end;
+        }
+      }     
+
+      @include for-phone{
+        grid-template-columns: auto;
+        font-size: 1rem;
+      }     
+    }
+
+    &-body{
+      @include grid(row,auto,auto,normal,12px);
+      max-height: 520px;
+      overflow: hidden;
+      overflow-y: scroll;
+      @include mac-scrollbar-style;
+
+      &-row{
+        @include grid(column,repeat(2, 13rem) 1fr,auto,normal,24px);
+        align-items: center;
+        position: relative;
+        color: var(--fontColor);
+
+        .item{
+          @include grid(column,auto,auto,flex-start,0);
+          align-items: center;
+          position: relative;
+
+          .input-style{
+            width: 100%;
+            border: 1px solid var(--mecoGreen);
+            border-radius: 5px;
+            padding: 6px 3px;
+            @include link-default;
+          }
+
+          &>sub{
+            color: var(--red);
+            margin-left: 12px;
+            bottom: 0;
+          }
+
+          .btn{
+            background: transparent;
+            border:none;
+            color: var(--mecoGreen);
+            cursor: pointer;
+            font-size: 1.5rem;
+            @include link-default;
+            @include ease(.2s);
+
+            &:hover{
+              @include filter-brightness(0.8);
+            }
+          }
+
+          &:last-child{
+            justify-content: end;
+          }
+        } 
+
+        @include for-phone{            
+          grid-template-columns: repeat(2, 6rem) 1fr;
+          font-size: 1rem;
+        }    
+      }
+
+      @include for-largepad{               
+        max-height: 764px;
+      }  
+
+      @include for-phone{
+        max-height: 560px;
+      }
+    }      
+
+    .save-btn{
+      @include grid(column,auto,auto,center,6px);
+      align-items: center;
+      background: var(--mecoGreen);    
+      width: 150px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--white);
+      margin: auto;  
+      margin-top: 24px;
+      padding: 6px;
+      @include link-default;
+      @include ease(.2s);
+
+      &:hover{
+        @include filter-brightness(0.8);
+      }
+    }
+
+    @include for-largepad{
+      gap: 24px;
+      font-size: 1rem;
+      padding: 16px;
+    }
+  }
+
+  @include for-phone{
+    grid-template-columns: 344px;
+  }
+}
+/* AT bonus popup windows end */
+
+/* 職位 popup windows */
+.position-popupwindow{
+  @include grid(row,320px,auto,center,24px);
+  background: rgba(0,0,0,.5);
+  @include background-blur(10px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  @include hide;
+  @include ease(.2s);
+  z-index: 101;
+
+  .table{      
+    @include grid(row,auto,auto,normal,24px);
+    position: relative;
+    background: var(--white);
+    border-radius: 10px;
+    font-size: 1.25rem;
+    padding: 24px; 
+    
+    .p-close-btn{
+      position: absolute;
+      background: var(--white);
+      border: none;
+      border-radius: 50%;
+      height: 40px;
+      color: var(--mecoGreen);
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 8px;
+      top: -55px;
+      right: 0;
+      @include ease(.2s);
+
+      &:hover{
+        background: var(--mecoGreen);
+        color: var(--white);
+      }
+    }
+
+    &-title{
+      @include grid(column,auto,auto,normal,0);
+      border-bottom: 1px solid var(--gray);
+      padding-bottom: 24px;
+    }
+
+    &-list{
+      @include grid(column,max-content 1fr,auto,baseline,24px);
+
+      &-body{
+        @include flexbox-gap(column,flex-start,flex-start,24px);
+        color: var(--fontColor);
+      }   
+    }
+
+    @include for-largepad{
+      padding: 16px;
+    }
+  }
+}
+/* 職位 popup windows end */
+.popup-open{    
+  @include show;
+} 

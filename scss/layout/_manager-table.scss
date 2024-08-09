@@ -1,0 +1,251 @@
+.manager-table {
+    grid-template-rows: max-content;
+
+    &-header {
+        @include grid(column, repeat(2, 17%) 7% 10% 1fr 5%, auto, normal, 12px);
+        align-items: center;
+        font-size: 1.125rem;
+        border-bottom: 1px solid var(--gray);
+        padding-bottom: 24px;
+        padding-right: 8px;
+
+        @include for-desktop {
+            font-size: 0.85rem;
+            display: none;
+        }
+    }
+
+    &-body {
+        @include grid(row, auto, auto, normal, 24px);
+        max-height: 614px;
+        overflow: hidden;
+        overflow-y: scroll;
+        @include mac-scrollbar-style;
+
+        &-row {
+            @include grid(column, repeat(2, 17%) 7% 10% 1fr 5%, auto, normal, 12px);
+            align-items: center;
+            position: relative;
+            color: #666;
+
+            .item {
+                @include grid(column, auto, auto, flex-start, 6px);
+                align-items: baseline;
+                position: relative;
+
+                &:before {
+                    @include for-desktop {
+                        content: attr(data-th);
+                        color: var(--black);
+                        margin-right: 6px;
+                    }
+                }
+
+                @include for-desktop {
+                    align-items: center;
+                }
+            }
+
+            .position-item {
+                &>i {
+                    color: var(--mecoGreen);
+                    cursor: pointer;
+                    @include ease(.2s);
+
+                    &:hover {
+                        @include filter-brightness(0.8);
+                    }
+                }
+            }
+
+            .name-item {
+                &>button {
+                    background: transparent;
+                    border: 1px solid var(--mecoGreen);
+                    border-radius: 5px;
+                    color: var(--mecoGreen);
+                    cursor: pointer;
+                    padding: 5px;
+                    @include ease(.2s);
+
+                    &:hover {
+                        background: var(--mecoGreen);
+                        color: var(--white);
+                    }
+                }
+
+                @include for-desktop {
+                    grid-template-columns: auto;
+                }
+            }
+
+            .permission-item {
+                .checkbox {
+                    @include flexbox-gap(row, center, flex-start, 6px);
+
+                    &-input {
+                        @include grid-center;
+                        appearance: none;
+                        position: relative;
+                        border: 1px solid var(--mecoGreen);
+                        cursor: pointer;
+                        margin: 0;
+                        width: 1.25em;
+                        height: 1.25em;
+                        border-radius: 3px;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            background: var(--mecoGreen);
+                            width: 2px;
+                            @include hide;
+                            @include ease(.2s);
+                        }
+
+                        &:checked {
+
+                            &::before,
+                            &::after {
+                                @include scale(1);
+                                @include show;
+                            }
+
+                            &::before {
+                                height: 6px;
+                                top: 7px;
+                                left: 4px;
+                                @include rotate(-45deg);
+
+                                @include for-desktop {
+                                    height: 4px;
+                                    top: 5px;
+                                    left: 2px;
+                                }
+                            }
+
+                            &::after {
+                                height: 12px;
+                                top: 3px;
+                                left: 10px;
+                                @include rotate(45deg);
+
+                                @include for-desktop {
+                                    height: 8px;
+                                    top: 2px;
+                                    left: 6px;
+                                }
+                            }
+                        }
+
+                        @include for-desktop {
+                            width: 1em;
+                            height: 1em;
+                        }
+                        
+                    }
+
+                    &>label {
+                        white-space: nowrap;
+                    }          
+
+                    @include for-desktop {
+                        gap: 2px;
+                    }
+                }      
+            }
+
+            .status-item {
+                .text {
+                    color: var(--red);
+                }
+            }
+
+            .md-item {
+                .md-check-btn {
+                    display: flex;
+                    align-items: center;
+                    @include switch-style;
+                }
+            }
+
+            @include for-desktop {
+                font-size: 0.85rem;
+                grid-auto-flow: row;
+                grid-template-columns: auto;
+                border-bottom: 1px solid var(--gray);
+                padding-bottom: 24px;
+            }
+        }
+
+        .invalid {
+            color: #B3B3B3;
+
+            & i,
+            button,
+            input {
+                color: #B3B3B3 !important;
+                cursor: not-allowed;
+            }
+
+            & button,
+            .checkbox-input {
+                border: 1px solid #ddd;
+            }
+
+            .checkbox {
+                cursor: not-allowed;
+
+                .checkbox-input {
+                    cursor: not-allowed;
+                }
+
+                & label {
+                    cursor: not-allowed;
+                }
+            }
+
+            .md-check-btn {
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            & i {
+                &:hover {
+                    @include filter-brightness(1);
+                }
+            }
+
+            & button {
+                &:hover {
+                    background: transparent;
+                    color: var(--mecoGreen);
+                }
+            }
+        }
+
+        .btn-invalid {
+            color: #B3B3B3 !important;
+            border: 1px solid #ddd !important;
+            cursor: not-allowed !important;
+
+            &:hover {
+                background: transparent !important;
+                color: #B3B3B3 !important;
+            }
+        }
+
+        @include for-desktop {
+            max-height: 575px;
+        }
+
+        @include for-largepad {
+            max-height: 692px;
+        }
+
+        @include for-phone {
+            max-height: 484px;
+        }
+    }
+}

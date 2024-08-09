@@ -1,0 +1,228 @@
+/* 排名表單 for 業績總覽 */
+.manager-ranking-table {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 30vh;
+    @include grid-start-end(1, 3, 2, 2);
+    gap: 16px;
+
+    &>input[type="radio"] {
+        @include s-tabs(1.5rem, 0px, "#ranking-tab", ".panel", "#panel");
+
+        &+label {
+            @include for-largepad {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    .panel {
+        grid-column: 1/3;
+        position: relative;
+        color: var(--fontColor);
+
+        &::after {
+            content: "";
+            position: absolute;
+            border-top: 1px solid var(--gray);
+            width: 100%;
+            top: -4px;
+        }
+
+        &-table {
+            display: grid;
+            grid-template-rows: 24px 1fr;
+            gap: 8px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            @include hide;
+            @include ease(.2s);
+        }
+    }
+
+    &-define {
+        @include grid(column, auto, auto, center, 48px);
+        color: var(--fontColor);
+        font-size: 0.875rem;
+
+        &-implement {
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background: var(--mecoGreen);
+                width: 18px;
+                height: 100%;
+                margin-left: -24px;
+            }
+        }
+
+        &-bonus {
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background: var(--pink);
+                width: 18px;
+                height: 100%;
+                margin-left: -24px;
+            }
+
+        }
+
+        &-price {
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background: var(--darkGray);
+                width: 18px;
+                height: 100%;
+                margin-left: -24px;
+            }
+
+        }
+    }
+
+    .rank {
+        @include grid(row, auto, auto, normal, 12px);
+        max-height: 260px;
+        padding: 2px 0;
+        overflow: hidden;
+        overflow-y: scroll;
+        @include mac-scrollbar-style;
+
+        &-row {
+            @include grid(column, 8rem 1fr, auto, normal, 0);
+            align-items: center;
+
+            &-user {
+                @include grid(column, auto, auto, inherit, 12px);
+                place-items: center;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 1.125rem;
+
+                &-num {
+                    @include flexbox(row, center, center);
+                    position: relative;
+
+                    &>i {
+                        font-size: 1.5rem;
+                    }
+
+                    &>span {
+                        position: absolute;
+                        font-size: 0.875rem;
+                        top: 3px;
+                    }
+                }
+
+                @include for-desktop {
+                    font-size: 0.875rem;
+                }
+
+                @include for-phone {
+                    gap: 6px;
+                }
+            }
+
+            &-received {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+                gap: 8px;
+                align-items: center;
+                position: relative;
+                height: 100%;
+                color: var(--white);
+                font-size: 0.875rem;
+                border-radius: 50px;
+
+                &-implement,
+                &-bonus {
+                    position: relative;
+                    z-index: 2;
+
+                    .percent-bar {
+                        text-align: right;
+
+                        .value {
+                            color: var(--darkGray);
+                        }
+
+                        .progress-bar {
+                            background: var(--darkGray);
+                            width: 100%;
+                            height: 9px;
+                            border-radius: 50px;
+                        }
+                    }
+                }
+
+                &-implement {
+                    .implement-bar {
+                        position: absolute;
+                        width: 100%;
+                        z-index: 2;
+
+                        .value {
+                            color: var(--mecoGreen);
+                        }
+
+                        .progress-bar {
+                            background: var(--mecoGreen);
+                            height: 9px;
+                            border-radius: 50px;
+                        }
+                    }
+                }
+
+                &-bonus {
+                    .bonus-bar {
+                        position: absolute;
+                        width: 100%;
+                        z-index: 2;
+
+                        .value {
+                            color: var(--pink);
+                        }
+
+                        .progress-bar {
+                            background: var(--pink);
+                            height: 9px;
+                            border-radius: 50px;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                .rank-row-user {
+                    .rank-row-user-num {
+                        color: var(--red);
+                    }
+                }
+            }
+
+            @include for-phone {
+                grid-template-columns: 6rem 1fr;
+            }
+        }
+
+        @include for-desktop {
+            gap: 16px;
+        }
+    }
+
+    @include for-phone {
+        @include grid-start-end(inherit, inherit, inherit, inherit);
+    }
+}
+
+/* 排名表單 for 業績總覽 end */

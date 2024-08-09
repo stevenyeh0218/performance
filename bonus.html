@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>iPerf</title>
+    <meta property="og:title" content="iPerf" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="iPerf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <!-- icomoon.css -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- default.css -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+
+<body>
+    <div id="dashboard">
+        <!-- 側邊攔 -->
+        <div class="sidebar"></div>
+        <!-- 主畫面 -->
+        <div class="main">
+            <header class="main-header">
+                <i class="micon-bonus icon"></i>
+                <label>AT 獎金級距</label>
+            </header>
+            <div class="tools">
+                <form class="search">
+                    <input type="text" class="search-input" placeholder="搜尋帳號">
+                    <button type="button" class="btn search-btn">
+                        <i class="micon-search"></i>
+                    </button>
+                </from>
+            </div>
+            <div class="content manager-content">
+                <div class="table manager-table bonus-table">
+                    <div class="manager-table-header">
+                        <div class="item name-item">姓名</div>
+                        <div class="item amount-item">訂單實收金額</div>
+                        <div class="item bouns-item">獎金計算費率(%)</div>
+                        <div class="item edit-item"></div>
+                    </div>
+                    <div class="manager-table-body">
+                        <div class="manager-table-body-row">      
+                            <div class="item name-item" data-th="姓名">Kevin</div>
+                            <div class="item amount-item" data-th="訂單實收金額">
+                                <div class="value">100000</div><sub>以上</sub>
+                            </div>
+                            <div class="item bonus-item" data-th="獎金計算費率(%)">   
+                                <div class="value">3.5%</div>
+                            </div>
+                            <div class="item edit-item">
+                                <button type="button" class="edit-btn">
+                                    <i class="micon-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="at-bonus-edit-popupwindow">
+        <div class="table">
+            <button type="button" class="close-btn">
+                <i class="micon-close"></i>
+            </button>
+            <div class="table-title">
+                <div class="username">姓名：Kevin</div>
+            </div>
+            <div class="table-header">
+                <div class="item">訂單實收金額</div>
+                <div class="item">獎金計算費率(%)</div>
+                <div class="item">
+                    <button type="button" class="btn add-btn">
+                        <i class="micon-add"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="table-body">
+                <div class="table-body-row">      
+                    <div class="item">
+                        <input type="text" value="0" class="input-style">
+                        <sub>以上</sub>
+                    </div>
+                    <div class="item">                               
+                        <input type="text" value="0" class="input-style">
+                    </div>
+                    <div class="item">
+                        <button type="button" class="btn del-btn">
+                            <i class="micon-minus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button class="save-btn">
+                <i class="micon-save"></i>儲存
+            </button>
+        </div>
+    </div>
+</body>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 呼叫編輯彈出視窗  -->
+<script src="js/popup.js"></script>
+
+</html>

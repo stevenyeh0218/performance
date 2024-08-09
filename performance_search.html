@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>iPerf</title>
+    <meta property="og:title" content="iPerf" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="iPerf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <!-- pickadte 套件樣式 -->
+    <link rel="stylesheet" href="vendor/pickadate.js-master/lib/themes/default.css">
+    <link rel="stylesheet" href="vendor/pickadate.js-master/lib/themes/default.date.css">
+
+    <!-- icomoon.css -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- default.css -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+
+<body>
+    <div id="dashboard">
+        <!-- 側邊攔 -->
+        <div class="sidebar"></div>
+        <!-- 主畫面 -->
+        <div class="main">
+            <header class="main-header">
+                <i class="micon-performance icon"></i>
+                <label>業績總覽</label>
+            </header>
+            <div class="tools">
+                <button class="btn reload-btn">
+                    <i class="micon-reload icon"></i>
+                    <div class="reload-text">更新即時業績</div>
+                </button>
+                <form class="calendar">
+                    <i class="micon-calendar icon"></i>
+                    <input type="text" class="calendar-input">
+                    <button type="button" class="btn search-btn">
+                        <i class="micon-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="content">
+                <div class="table month-table">
+                    <header><span class="month-text">10月</span>份業績</header>
+                    <div class="list">
+                        <div class="item">
+                            <div class="title">實收金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">訂單金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                    </div>
+                    <canvas id="month-chart" class="chart" height="199"></canvas>
+                    <div class="chart-table">
+                        <div class="chart-table-header">
+                            <div class="item store-item">分院名稱</div>
+                            <div class="item"></div>
+                            <div class="item">實收金額</div>
+                            <div class="item">訂單金額</div>
+                        </div>
+                        <div class="chart-table-body">
+                            <div class="chart-table-body-row">      
+                                <div class="item store-item">天母分院</div>
+                                <div class="item"></div>
+                                <div class="item">775,776</div>
+                                <div class="item">768,276</div>
+                            </div>
+                            <div class="chart-table-body-row">      
+                                <div class="item store-item">忠孝新生分院</div>
+                                <div class="item"></div>
+                                <div class="item">1.112.265</div>
+                                <div class="item">1.111.685</div>
+                            </div>
+                            <div class="chart-table-body-row">      
+                                <div class="item store-item">民生分院</div>
+                                <div class="item"></div>
+                                <div class="item">567.331</div>
+                                <div class="item">542.291</div>
+                            </div>
+                            <div class="chart-table-body-row">      
+                                <div class="item store-item">內湖分院</div>
+                                <div class="item"></div>
+                                <div class="item">344.469</div>
+                                <div class="item">507.409</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table date-table">
+                    <header>今日業績 <span class="data-text">10/21(一)</span></header>
+                    <div class="list">
+                        <div class="item">
+                            <div class="title">實收金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                        <div class="item">
+                            <div class="title">訂單金額</div>
+                            <div class="text">$340,000</div>
+                        </div>
+                    </div>
+                    <div class="performance-table">
+                        <div class="performance-table-header">
+                            <div class="item store-item">分院名稱</div>
+                            <div class="item"></div>
+                            <div class="item">實收金額</div>
+                            <div class="item">訂單金額</div>
+                        </div>
+                        <div class="performance-table-body">
+                            <div class="performance-table-body-row">      
+                                <div class="item store-item">天母分院</div>
+                                <div class="item"></div>
+                                <div class="item">1,050,000</div>
+                                <div class="item">1,050,000</div>
+                            </div>
+                            <div class="performance-table-body-row">      
+                                <div class="item store-item">忠孝新生分院</div>
+                                <div class="item"></div>
+                                <div class="item">1,050,000</div>
+                                <div class="item">1,050,000</div>
+                            </div>
+                            <div class="performance-table-body-row">      
+                                <div class="item store-item">民生分院</div>
+                                <div class="item"></div>
+                                <div class="item">1,050,000</div>
+                                <div class="item">1,050,000</div>
+                            </div>
+                            <div class="performance-table-body-row">      
+                                <div class="item store-item">內湖分院</div>
+                                <div class="item"></div>
+                                <div class="item">1,050,000</div>
+                                <div class="item">1,050,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table manager-ranking-table">
+                    <input id="ranking-tab1" type="radio" name="ranking-tabs" checked>
+                    <label for="ranking-tab1">(本月)PT排名</label>
+        
+                    <input id="ranking-tab2" type="radio" name="ranking-tabs">
+                    <label for="ranking-tab2">(本月)AT排名</label>
+
+                    <div class="panel">
+                        <!-- PT排名表單 -->
+                        <div id="panel-1" class="panel-table">
+                            <div class="manager-ranking-table-define">
+                                <div class="manager-ranking-table-define-implement">執行金額</div>
+                                <div class="manager-ranking-table-define-bonus">實收金額</div>
+                                <div class="manager-ranking-table-define-price">占當月業績</div>
+                            </div>  
+                            <div class="rank">
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>1</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">
+                                        <div class="rank-row-received-implement">
+                                            <div class="implement-bar">
+                                                <span class="value">$105,600</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">70%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                        </div>         
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">
+                                        <div class="rank-row-received-implement">
+                                            <div class="implement-bar">
+                                                <span class="value">$105,600</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">70%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                        </div>         
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>3</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">
+                                        <div class="rank-row-received-implement">
+                                            <div class="implement-bar">
+                                                <span class="value">$105,600</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">70%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                        </div>         
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>4</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">
+                                        <div class="rank-row-received-implement">
+                                            <div class="implement-bar">
+                                                <span class="value">$105,600</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">70%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                        </div>         
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">
+                                        <div class="rank-row-received-implement">
+                                            <div class="implement-bar">
+                                                <span class="value">$105,600</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">70%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                        </div>         
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- AT排名表單 -->
+                        <div id="panel-2" class="panel-table">
+                            <div class="manager-ranking-table-define">
+                                <div class="manager-ranking-table-define-bonus">實收金額</div>
+                                <div class="manager-ranking-table-define-price">占當月業績</div>
+                            </div>  
+                            <div class="rank">
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>1</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">       
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">       
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>3</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">       
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>4</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">       
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="rank-row">
+                                    <div class="rank-row-user">
+                                        <div class="rank-row-user-num">
+                                            <i class="micon-circle"></i>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="rank-row-user-text">王小明</div>
+                                    </div>
+                                    <div class="rank-row-received">       
+                                        <div class="rank-row-received-bonus">
+                                            <div class="bonus-bar">
+                                                <span class="value">$259,391</span>
+                                                <div class="progress-bar" style="width: 10%"></div>
+                                            </div>
+                                            <div class="percent-bar">
+                                                <span class="value">100%</span>
+                                                <div class="progress-bar"></div>
+                                            </div>                                            
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>                                            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- pickadate 套件 -->
+<script src="vendor/pickadate.js-master/lib/picker.js"></script>
+<script src="vendor/pickadate.js-master/lib/picker.date.js"></script>
+
+<!-- chartJS 套件  -->
+<script src="vendor/chartJS/chart.js"></script>
+<script src="vendor/chartJS/chartjs-plugin-datalabels.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 使用 pickadate  -->
+<script src="js/date.js"></script>
+
+
+<!-- 使用 chartJS  -->
+<script src="js/barchart.js"></script>
+
+</html>

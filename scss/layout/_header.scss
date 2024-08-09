@@ -1,0 +1,14 @@
+/* 標題 */
+.main-header {
+    font-size: 2rem;
+
+    @include for-desktop {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        margin-right: 16px;
+    }
+}
+
+/* 標題 end */

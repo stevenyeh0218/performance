@@ -1,0 +1,181 @@
+/* common table style */
+.table {
+    @include grid(row, auto, max-content 3.125rem max-content, normal, 24px);
+    background: var(--white);
+    border-radius: 10px;
+    padding: 24px;
+    height: 100%;
+
+    &>header {
+        border-bottom: 1px solid var(--gray);
+        font-size: 1.5rem;
+        padding-bottom: 12px;
+
+        @include for-desktop {
+            font-size: 1.25rem;
+        }
+    }
+
+    .list {
+        @include grid(column, auto, auto, normal, 16px);
+
+        .item {
+            @include grid(row, auto, auto, normal, 12px);
+            font-size: 1.25rem;
+            color: var(--mecoGreen);
+
+            .title {
+                font-size: 0.875rem;
+                color: var(--fontColor);
+
+                @include for-desktop {
+                    font-size: 0.75rem;
+                }
+            }
+
+            .text {
+
+                @include for-desktop {
+                    font-size: 1rem;
+                }
+            }
+
+            @include for-desktop {
+                gap: 6px;
+            }
+        }
+
+        .bouns-item {
+            color: var(--red);
+
+            .title {
+                color: var(--red);
+            }
+        }
+    }
+
+    /* chart style */
+    .chart {
+        width: 100% !important;
+        min-height: 224px;
+        border-top: 1px solid var(--gray);
+        padding-top: 24px;
+    }
+
+    /* chart style end */
+
+    /* chart table style */
+    .chart-table {
+        @include grid(row, auto, auto, normal, 24px);
+        border: 1px solid var(--gray);
+        border-radius: 5px;
+        font-size: 0.875rem;
+        padding: 12px;
+
+        &-header {
+            @include grid(column, 7rem 1fr repeat(2, 5rem), auto, normal, 12px);
+            color: var(--pink);
+            padding-right: 8px;
+
+            .item {
+                text-align: center;
+
+                &:first-child {
+                    text-align: left;
+                }
+            }
+        }
+
+        &-body {
+            @include grid(row, auto, auto, normal, 12px);
+            max-height: 190px;
+            overflow: hidden;
+            overflow-y: scroll;
+            @include mac-scrollbar-style;
+
+            &-row {
+                @include grid(column, 7rem 1fr repeat(2, 5rem), auto, normal, 12px);
+                color: var(--fontColor);
+                border-bottom: 1px solid var(--gray);
+                padding-bottom: 12px;
+
+                .item {
+                    text-align: center;
+
+                    &:first-child {
+                        text-align: left;
+                    }
+                }
+
+                .store-item {
+                    color: var(--mecoGreen);
+                }
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    /* chart table style end */
+
+    /* 今日業績表單 */
+    .performance-table {
+        @include grid(row, auto, auto, normal, 24px);
+        border-top: 1px solid var(--gray);
+        padding-top: 24px;
+
+        &-header {
+            @include grid(column, 7rem 1fr repeat(2, 5rem), auto, normal, 12px);
+            font-size: 0.75rem;
+            color: var(--pink);
+            padding-right: 8px;
+
+            .item {
+                text-align: center;
+
+                &:first-child {
+                    text-align: left;
+                }
+            }
+        }
+
+        &-body {
+            @include grid(row, auto, auto, normal, 12px);
+            max-height: 380px;
+            overflow: hidden;
+            overflow-y: scroll;
+            @include mac-scrollbar-style;
+
+            &-row {
+                @include grid(column, 7rem 1fr repeat(2, 5rem), auto, normal, 12px);
+                color: var(--fontColor);
+                border-bottom: 1px solid var(--contentcolor);
+                padding-bottom: 12px;
+
+                .item {
+                    text-align: center;
+
+                    &:first-child {
+                        text-align: left;
+                    }
+                }
+
+                .store-item {
+                    color: var(--mecoGreen);
+                }
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    /* 今日業績表單 end */
+    @include for-desktop {
+        padding: 12px;
+    }
+}
+/* common table style end */

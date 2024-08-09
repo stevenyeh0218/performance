@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>iPerf</title>
+    <meta property="og:title" content="iPerf" />
+    <meta property="og:type" content="website" />
+    <meta itemprop="name" content="iPerf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <!-- icomoon.css -->
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
+
+    <!-- default.css -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+
+<body>
+    <div id="dashboard">
+        <!-- 側邊攔 -->
+        <div class="sidebar"></div>
+        <!-- 主畫面 -->
+        <div class="main">
+            <header class="main-header">
+                <i class="micon-management icon"></i>
+                <label>帳號管理</label>
+            </header>
+            <div class="tools manager-tools">
+                <input type="button" value="同步領健會員資料" class="btn">
+                <input type="button" value="同步領健員工資料" class="btn">
+                <form class="search">
+                    <input type="text" class="search-input" placeholder="搜尋帳號">
+                    <button type="button" class="btn search-btn">
+                        <i class="micon-search"></i>
+                    </button>
+                </from>
+            </div>
+            <div class="content manager-content">
+                <div class="table manager-table">
+                    <div class="manager-table-header">
+                        <div class="item position-item">職位</div>
+                        <div class="item name-item">姓名</div>
+                        <div class="item user-item">MD</div>
+                        <div class="item user-item">帳號</div>
+                        <div class="item permission-item">權限</div>
+                        <div class="item status-item">狀態</div>
+                    </div>
+                    <div class="manager-table-body">
+                        <div class="manager-table-body-row">                            
+                            <div class="item position-item" data-th="職位">
+                                醫師/物理治療師
+                                <i class="micon-check-all position-btn"></i>
+                            </div>
+                            <div class="item name-item" data-th="姓名">
+                                joseph_w
+                                <button type="button" class="rest-btn">
+                                    <i class="micon-reset"></i>
+                                    重置
+                                </button>
+                            </div>
+                            <div class="item md-item" data-th="MD">
+                                <div class="md-check-btn">
+                                    <input type="checkbox" id="93" checked="">
+                                    <label for="93"></label>
+                                    <span>是</span>
+                                    <span>否</span>
+                                </div>
+                            </div>
+                            <div class="item user-item" data-th="帳號">0988255555</div>
+                            <div class="item permission-item" data-th="權限">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="sales" class="checkbox-input sales-input">
+                                    <label for="sales">運動管理師</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="director" class="checkbox-input director-input">
+                                    <label for="director">主管</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="operation" class="checkbox-input operation-input">
+                                    <label for="operation">營運</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="operation" class="checkbox-input operation-input">
+                                    <label for="operation">物理治療師</label>
+                                </div>
+                            </div>
+                            <div class="item status-item" data-th="狀態">
+                                <div class="text"></div>
+                            </div>
+                        </div>
+                        <div class="manager-table-body-row invalid">                            
+                            <div class="item position-item" data-th="職位">
+                                醫師/物理治療師
+                                <i class="micon-check-all"></i>
+                            </div>
+                            <div class="item name-item" data-th="姓名">
+                                Kevin
+                                <button type="button" class="rest-btn ">
+                                    <i class="micon-reset"></i>
+                                    重置
+                                </button>
+                            </div>
+                            <div class="item md-item" data-th="MD">
+                                <div class="md-check-btn">
+                                    <input type="checkbox" id="93">
+                                    <label for="93"></label>
+                                    <span>是</span>
+                                    <span>否</span>
+                                </div>
+                            </div>
+                            <div class="item user-item" data-th="帳號">0988255555</div>
+                            <div class="item permission-item" data-th="權限">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="sales" class="checkbox-input sales-input">
+                                    <label for="sales">運動管理師</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="director" class="checkbox-input director-input">
+                                    <label for="director">主管</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="operation" class="checkbox-input operation-input">
+                                    <label for="operation">營運</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="operation" class="checkbox-input operation-input">
+                                    <label for="operation">物理治療師</label>
+                                </div>
+                            </div>
+                            <div class="item status-item" data-th="狀態">
+                                <div class="text">無效</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-popupwindow">
+        <div class="table">
+            <button type="button" class="p-close-btn">
+                <i class="micon-close"></i>
+            </button>
+            <div class="table-title">
+                <div class="username">姓名　Kevin</div>
+            </div>
+            <div class="table-list">
+                <div class="table-list-header">職位</div>
+                <div class="table-list-body">
+                    <div class="table-list-body-row">主管</div>
+                    <div class="table-list-body-row">運動管理師</div>
+                    <div class="table-list-body-row">總經理</div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<!-- 引用 jquery 3.6.1 -->
+<script src="vendor/jquery-3.6.1.min.js"></script>
+
+<!-- 共同頁面讀取  -->
+<script src="js/loading.js"></script>
+
+<!-- 呼叫編輯彈出視窗  -->
+<script src="js/popup.js"></script>
+
+</html>

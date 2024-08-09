@@ -1,0 +1,15 @@
+/* 主要畫面 */
+.content {
+    @include grid(column, repeat(2, 49%), auto, normal, 24px);
+
+    @include for-desktop {
+        gap: 12px;
+    }
+
+    @include for-largepad {
+        grid-auto-flow: row;
+        grid-template-columns: auto;
+    }
+}
+
+/* 主要畫面 end*/

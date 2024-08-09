@@ -1,0 +1,191 @@
+/* 登入 登出 共同style */
+#login-bg {
+  @include grid-center;
+  position: relative;
+  background: url(../..//image/bg.jpg) no-repeat center center transparent;
+  background-size: cover; 
+  height: 100%;
+  
+  &::before{
+    content: "";
+    position:absolute;
+    background: rgba(255,255,255, .5);
+    width: 100%;
+    height: 100%;
+    @include background-blur(10px);
+  }
+  .login-content{
+    position: relative;
+    width: 343px;
+    z-index: 1;
+
+    .logo{
+      width: 100%;
+      height: 36px;
+      margin-bottom: 24px;
+    }
+
+    &-form{   
+      @include grid(row,auto,auto,normal,24px);
+      background: rgba(0,187,180,.7);
+      font-size: 1.125rem;
+      border-radius: 14px;
+      padding:24px 16px;
+
+      /* input 共用style */
+      .input-group {
+        @include flexbox(row,center,flex-start);
+        &-style{
+          width: 100%;
+          border-radius: 5px;
+          border: none;
+          padding: 12px;
+          padding-left: 42px;
+          @include link-default;
+          @include ease(.2s);
+
+          &::placeholder {
+            font-size: 0.875rem;
+          }
+
+          &:focus,&:active{
+            @include box-shadow( 0,10px,20px,0,rgba(0,0,0, 0.19));
+          }
+          
+        }      
+
+        .icon{
+          position: absolute;
+          color: var(--mecoGreen);
+          font-size: 1.5rem;
+          left: 24px;
+        }
+        
+        /* 密碼input 客製化 */
+
+        .view-icon{
+          cursor: pointer;   
+          padding: 4px;
+          left: auto;
+          right:20px;
+          @include ease(.2s);
+
+          &:hover{
+            @include filter-brightness(0.85);
+          }
+        }
+        /* 密碼input 客製化 end*/
+      }
+      /* input 共用style end */
+
+      /* 記住密碼 style */      
+      .remember-pswd{    
+
+        &-input{ 
+          @include grid-center;
+          appearance: none;
+          position: relative;
+          background: var(--white);
+          cursor: pointer;
+          margin: 0;
+          width: 1.25em;
+          height: 1.25em;
+          border-radius: 3px;
+
+          &::before,
+          &::after{
+            content: "";
+            position: absolute;
+            background: var(--mecoGreen);
+            width: 2px;
+            @include hide;
+            @include ease(.2s);
+
+            &::before{
+              height: 6px;    
+              top: 11px;
+              left: 7px;
+              @include rotate(-45deg);
+            }
+
+            &::after{
+              height: 12px;
+              top: 6px;
+              left: 12px;
+              @include rotate(45deg);
+            }  
+          } 
+          
+          &:checked{
+            &::before,
+            &::after{
+              @include scale(1);
+              @include show;
+            }            
+
+            &::before{
+              height: 6px;    
+              top: 11px;
+              left: 7px;
+              @include rotate(-45deg);
+            }
+
+            &::after{
+              height: 12px;
+              top: 6px;
+              left: 12px;
+              @include rotate(45deg);
+            }   
+          }
+        }
+        
+        & > label{
+          color: var(--white);
+          margin-left: 16px;
+          cursor: pointer;
+        }
+
+      }
+      /* 記住密碼 style end */
+      
+      /* button 共用style */
+      .btn-style{
+        @include fill-available;
+        background: var(--btnColor);
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        color: var(--black);
+        margin-top: 20px;
+        padding: 12px;
+        @include link-default;
+        @include ease(.2s);
+
+        &:hover{
+          @include filter-brightness(0.85);
+        }
+      }
+
+      .disable-btn{
+        @include filter-brightness(0.85);
+        cursor: not-allowed;
+      }
+      /* button 共用style end */
+    }
+
+    .login-fail{
+      color: var(--red);
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}
+/* 登入 登出 共同style end*/
+
+/* 不開放頁面 style */
+#not-open{
+  background: url(../..//image/rest-page.png) no-repeat center center transparent;
+  background-size: contain; 
+  height: 100%;  
+}
+/* 不開放頁面 style end*/

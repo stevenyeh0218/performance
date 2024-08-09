@@ -1,0 +1,20 @@
+#dashboard {
+    @include grid(row, 270px 1fr, auto, normal, 24px);
+    position: relative;
+    height: inherit;
+
+    @include for-desktop {
+        @include grid(row, 215px 1fr, auto, normal, 24px);
+    }
+
+    @include for-largepad {
+        @include grid(row, auto, max-content, normal, 24px);
+    }
+}
+
+/* 側邊欄關閉時的寬度 */
+.switch-width {
+    grid-template-columns: 108px 1fr !important;
+}
+
+/* 側邊欄關閉時的寬度 end */
